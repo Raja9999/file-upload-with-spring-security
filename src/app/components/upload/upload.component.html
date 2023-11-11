@@ -1,0 +1,29 @@
+<div class="row h-100 px-3 pb-4">
+    <div class="col-lg-5 col-12 mx-auto rounded rounded-5 border border-white bg-white shadow-lg p-md-4 pt-md-2">
+        <form id="upload-form" class="d-flex flex-column justify-content-evenly h-100">
+            <div class="d-flex justify-content-between">
+                <small class="text-primary">{{ userName }}</small>
+                <div>
+                    <button type="button" class="btn btn-sm btn-outline-info me-2" (click)="moveToDownloads()">
+                        Downloads
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger" (click)="logout()">
+                        Log out
+                    </button>
+                </div>
+            </div>
+            <div>
+                <img src="/assets/images/file-transfer.jpg" alt="" class="img-fluid" />
+            </div>
+            <div class="input-group-lg mb-3">
+                <input type="file" class="form-control" (change)="fileSelectionChanged($event)" multiple />
+            </div>
+            <div>
+                <button type="submit" id="process-btn" class="btn btn-lg btn-primary" (click)="uploadFiles()">
+                    <img class="mb-1 me-1" src="/assets/icons/upload.svg" alt="Process Icon" />
+                    Upload
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

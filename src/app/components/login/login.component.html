@@ -1,0 +1,40 @@
+<div class="row h-100 px-3 pb-4">
+    <div class="col-lg-5 col-12 mx-auto rounded rounded-5 border border-white bg-white shadow-lg p-md-4 pt-md-2">
+        <form class="d-flex flex-column justify-content-evenly h-100" [formGroup]="userLoginForm" (submit)="login()">
+            <div>
+                <img src="/assets/images/file-upload.jpg" alt="" class="img-fluid" />
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">Username</span>
+                    <input class="form-control" type="text" placeholder="Enter your username here"
+                        formControlName="userName" />
+                    <div *ngIf="userLoginForm.get('userName').invalid && (userLoginForm.get('userName').dirty || userLoginForm.get('userName').touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userLoginForm.get('userName').errors?.['required']">
+                            Username is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">Password</span>
+                    <input class="form-control" type="password" placeholder="Enter your password here"
+                        formControlName="password" />
+                    <div *ngIf="userLoginForm.get('password').invalid && (userLoginForm.get('password').dirty || userLoginForm.get('password').touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userLoginForm.get('password').errors?.['required']">
+                            Password is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" id="process-btn" class="btn btn-lg btn-primary">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

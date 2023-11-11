@@ -1,0 +1,54 @@
+<div class="row h-100 px-3 pb-4">
+    <div class="col-lg-5 col-12 mx-auto rounded rounded-5 border border-white bg-white shadow-lg p-md-4 pt-md-2">
+        <form id="signup-form" class="d-flex flex-column justify-content-evenly h-100" [formGroup]="userSignupForm"
+            (submit)="signup()">
+            <div>
+                <img src="assets/images/file-upload.jpg" alt="" class="img-fluid" />
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">Username</span>
+                    <input class="form-control" type="text" placeholder="Enter your username here"
+                        formControlName="userName" />
+                    <div *ngIf="userSignupForm.get('userName').invalid && (userSignupForm.get('userName').dirty || userSignupForm.get('userName').touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userSignupForm.get('userName').errors?.['required']">
+                            Username is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">Password</span>
+                    <input class="form-control" type="password" placeholder="Enter your password here"
+                        formControlName="password" />
+                    <div *ngIf="userSignupForm.get('password').invalid && (userSignupForm.get('password').dirty || userSignupForm.get('password').touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userSignupForm.get('password').errors?.['required']">
+                            Password is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">Confirm Password</span>
+                    <input class="form-control" type="password" placeholder="Re-enter your password here"
+                        formControlName="confirmPassword" />
+                    <div *ngIf="userSignupForm.get('confirmPassword').invalid && (userSignupForm.get('confirmPassword').dirty || userSignupForm.get('confirmPassword').touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userSignupForm.get('confirmPassword').errors?.['required']">
+                            Confirm password is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" id="process-btn" class="btn btn-lg btn-primary">
+                    Signup
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
